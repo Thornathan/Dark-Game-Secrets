@@ -1,13 +1,12 @@
 const User = require('../models/user');
 
 module.exports = {
-  index,
-  addBlog,
+  index
 };
 
 function index(req, res, next) {
   console.log(req.query)
-  // Make the query object to use with Student.find based up
+  // Make the query object to use with User.find based upon
   // the user has submitted the search form or now
   let modelQuery = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
   // Default to sorting by name
@@ -22,12 +21,5 @@ function index(req, res, next) {
       name: req.query.name,
       sortKey,
     });
-  });
-}
-
-function addBlog(req, res, next) {
-  req.user.posts.push(req.body);
-  req.user.save(function(err) {
-    res.redirect('/users');
   });
 }
