@@ -1,15 +1,31 @@
+* {
+  box-sizing: border-box;
+  color: #424748;
+}
+
 body {
   padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: grid;
 }
 
 nav {
   max-width: 90%;
-  background-color: black;
+  background-color: #b71c1c;
+}
+
+.nav-wrapper {
+  color: #ffab00;
+}
+
+.card {
+  background: #ff6f00;
 }
 
 .brand-logo {
-  margin-left: 15px;
+  margin-left: 15px; 
 }
 
 .card .card-content .card-title {

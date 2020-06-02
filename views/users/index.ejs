@@ -1,35 +1,24 @@
-<!DOCTYPE html>
-<html>
-
-<head>
-  <title>Dark Game Secrets</title>
-  <!-- Google Icon Fonts used by Materialize -->
-  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-  <!-- Materialize CSS Framework -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-  <link rel="stylesheet" href="stylesheets/style.css" />
-  <!-- JavaScript for Materialize -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-</head>
-
-<body>
-  <div class="navbar-fixed">
-    <nav>
-      <div class="nav-wrapper">
-        <a href="" class="brand-logo left">Dark Game Secrets</a>
-        <!-- Add login UI here -->
-        <ul class="right">
-          <li>
-          <% if (user) { %>
-            <a href="/logout"><i class="material-icons left">trending_flat</i>Log Out</a>
-          <% } else { %>
-            <a href="/auth/google"><i class="material-icons left">vpn_key</i>Login with Google</a>
-          <% } %>
-          </li>
-        </ul>        
-      </div>
-    </nav>
-  </div>
-</body>
-
-</html>
+<%- include('../partials/header') %>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <div>
+                        <span class="card-title">
+                        <% if(user) { %>
+                            <% if(user.avatar) { %>
+                                <img width="50" class="circle responsive-img" src="<%= user.avatar %>">
+                            <% } else { %>
+                                <i class="small material-icons">perm_identity></i>
+                            <% } %>
+                            <span class="user-name"><%= user.name %></span>
+                        <% } %>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>
