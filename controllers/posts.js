@@ -16,6 +16,7 @@ function show(req, res) {
         user = req.user;
     }
     Post.findById(req.params.id, function(err, post) {
+        console.log(post);
         res.render('posts/show', {post, user});
     });
 };
@@ -46,13 +47,17 @@ function create(req, res) {
 }
 
 function edit(req, res) {
+    let user = null;
+    if(req.user) {
+        user = req.user;
+    }
     Post.findById(req.params.id, function(err, posts) {
-        res.render('posts/edit', {posts});
+        res.render('posts/edit', {posts, user});
     })
 }
 
 function update(req, res) {
-    Post.findByIdAndUpdate(req.params.id, function(err) {
+    Post.findByIdAndUpdate(req.params.id, req.body, function(err) {
         res.redirect(`/posts/${req.params.id}`)
     })
 }
