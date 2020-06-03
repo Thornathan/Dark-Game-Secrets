@@ -1,0 +1,46 @@
+<%- include('../partials/header') %>
+<div class="container">
+    <div class="row">
+        <div class="col s12">
+            <div class="card">
+                <div class="card-content">
+                    <div>
+                        <ul>
+                            <div class="post-title"><%= post.title %></div>
+                            <div class="post"><%= post.post %></div>
+                            <a href="/posts/<% post._id %>/edit">Edit Post</a>
+                            <div class="comments">
+                                <form id="new-form" method="POST" action="/posts/<%= post._id %>/comments">
+                                    <label>Comment:</label>
+                                    <textarea name="content"></textarea>
+                                    <input type="submit" value="Add Comment">
+                                </form>
+                                <% if (post.comments.length) { %>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th>Date</th>
+                                            <th>Comment</th>
+                                            <th>Rating</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <% let total = 0 %>
+
+                                        <% post.comments.forEach(c => { %>
+                                    <tr>
+                                        <td><%= c.createdAt.toLocaleDateString() %></td>
+                                        <td><%= c.content %></td>
+                                        
+                                    </tr>
+                                <% }); %>
+                                <% } %>
+                            </div>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<%- include('../partials/footer') %>

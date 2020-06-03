@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+    <div class="new-form">
+        <h2>Edit Post</h2>
+        <form id="new-form" method="POST" action="/posts/<%= posts.id %>?_method=PUT" method="POST" autocomplete="off">
+            <label>Title:</label>
+            <textarea name="title"><%= posts.title %></textarea>
+            
+            <label>Post:</label>
+            <textarea name="post"><%= posts.post %></textarea>
+
+            <button type="submit">Save Post</button>
+        </form>
+    </div>
+<%- include('../partials/footer') %>

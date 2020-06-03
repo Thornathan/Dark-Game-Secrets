@@ -8,7 +8,9 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   margin: 0;
   height: 100vh;
-  display: grid;
+  display: flex;
+  flex-direction: column;
+  background-color: black;
 }
 
 nav {
@@ -20,14 +22,61 @@ nav {
   color: #ffab00;
 }
 
+.link-wrapper {
+  margin-left: 15px;
+  background-color: #ffff00;
+  max-width: 120%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+}
+
 .card {
   background: #ff6f00;
 }
 
 .brand-logo {
-  margin-left: 15px; 
+  margin-left: 15px;
+  font-size: 10px;
 }
 
 .card .card-content .card-title {
   margin-bottom: 10px;
+}
+
+.post-title {
+  font: 20px "Arial";
+}
+
+.post {
+  font: 
+}
+
+.new-form {
+  display: grid;
+  margin-left: 15px;
+  margin-top: 20px;
+  grid-gap: 10px;
+  background-color: #b71c1c;
+}
+
+.new-form h2 {
+  text-align: center;
+  color: #ffff00;
+}
+
+.new-form label {
+  font: 20px "Arial";
+  color: #ffff00;
+  margin-top: 20px;
+}
+
+textarea {
+  color: #ffff00;
+  margin: 15px 0 15px 0;
+}
+
+#new-form input[type="submit"] {
+  width: 10rem;
+  margin-left: auto;
 }

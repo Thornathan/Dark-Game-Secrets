@@ -1,0 +1,14 @@
+<%- include('../partials/header') %>
+    <div class="new-form">
+        <h2>New Post</h2>
+        <form id="new-form" method="POST" action="/posts">
+            <label>Title:</label>
+            <textarea name="title"></textarea>
+            
+            <label>Post:</label>
+            <textarea name="post"></textarea>
+
+            <input type="submit" value="Add Post">
+        </form>
+    </div>
+<%- include('../partials/footer') %>
