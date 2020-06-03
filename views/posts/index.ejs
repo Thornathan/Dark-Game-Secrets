@@ -4,6 +4,14 @@
     <ul>
         <% posts.forEach(p => { %>
             <li>
+                <span class="card-title">
+                    <% if (user.avatar) { %>
+                        <img width="50" class="circle responsive-img" src="<%= user.avatar %>">
+                    <% } else { %>
+                        <i class="small material-icons">perm_identity</i>
+                    <% } %>
+                    <span class="user-name"><%= user.name %></span>
+                </span>
                 <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
                 <button type="submit">Delete</button>
                 <a href="/posts/<%= p.id %>"><%= p.title %></a>

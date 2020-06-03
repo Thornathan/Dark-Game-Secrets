@@ -5,6 +5,14 @@
             <div class="card">
                 <div class="card-content">
                     <div>
+                        <span class="card-title">
+                            <% if (user.avatar) { %>
+                                <img width="50" class="circle responsive-img" src="<%= user.avatar %>">
+                            <% } else { %>
+                                <i class="small material-icons">perm_identity</i>
+                            <% } %>
+                            <span class="user-name"><%= user.name %></span>
+                        </span>
                         <ul>
                             <div class="post-title"><%= post.title %></div>
                             <div class="post"><%= post.post %></div>

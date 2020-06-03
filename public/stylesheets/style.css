@@ -40,8 +40,8 @@ nav {
   font-size: 10px;
 }
 
-.card .card-content .card-title {
-  margin-bottom: 10px;
+.card-title {
+  margin: 10px;
 }
 
 .post-title {
