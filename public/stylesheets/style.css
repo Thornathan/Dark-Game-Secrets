@@ -80,3 +80,7 @@ textarea {
   width: 10rem;
   margin-left: auto;
 }
+
+.posts-wrapper {
+  background-color: #ff6f00;
+}

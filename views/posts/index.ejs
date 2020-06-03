@@ -1,13 +1,15 @@
 <%- include('../partials/header') %>
-<h1>Blog Posts</h1>
-<ul>
-    <% posts.forEach(p => { %>
-        <li>
-            <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
-            <button type="submit">X</button>
-            </form>
-            <a href="/posts/<%= p.id %>"><%= p.title %></a>
-        </li>
-    <% }); %>
-</ul>
+<h2>Game Secrets</h2>
+<div class="posts-wrapper">
+    <ul>
+        <% posts.forEach(p => { %>
+            <li>
+                <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
+                <button type="submit">Delete</button>
+                <a href="/posts/<%= p.id %>"><%= p.title %></a>
+                </form>
+            </li>
+        <% }); %>
+    </ul>
+</div>
 <%- include('../partials/footer') %>
