@@ -10,14 +10,14 @@
                     <% } else { %>
                         <i class="small material-icons">perm_identity</i>
                     <% } %>
-                    <span class="user-name"><%= user.name %></span>
+                    <span><%= user.name %></span>
                 </span>
+                <a href="/posts/<%= p.id %>"><%= p.title %></a>
                 <% if (p.user.equals(user && user._id)) { %>
                 <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
-                <button type="submit">Delete</button>
+                <button class="btn btn-small waves-effect waves-light red" type="submit">Delete<i class="small material-icons left">cancel</i></button>
                 </form>
                 <% } %>
-                <a href="/posts/<%= p.id %>"><%= p.title %></a>
             </li>
         <% }); %>
     </ul>

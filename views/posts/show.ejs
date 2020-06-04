@@ -14,16 +14,32 @@
                             <span class="user-name"><%= user.name %></span>
                         </span>
                         <ul>
+                            <div class="post">
                             <div class="post-title"><%= post.title %></div>
-                            <div class="post"><%= post.post %></div>
+                            <div class="post-content"><%= post.post %></div>
                             <a href="/posts/<%= post._id %>/edit">Edit Post</a>
+                            </div>
                             <div class="comments">
                                 <% if (post.user.equals(user && user._id)) { %>
-                                <form id="new-form" method="POST" action="/posts/<%= post._id %>/comments">
+                                <form id="comments-ratings-section" method="POST" action="/posts/<%= post._id %>/comments">
                                     <label>Comment:</label>
                                     <textarea name="content"></textarea>
-                                    <input type="submit" value="Add Comment">
+                                    <label>Rating:</label>
+                                    <select name="rating"> 
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="6">6</option>
+                                        <option value="7">7</option>
+                                        <option value="8">8</option>
+                                        <option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                    <button class="btn waves-effect waves-light red right" type="submit">Comment<i class="material-icons left">add_circle</i></button>
                                 </form>
+                                <% } %>
                                 <% if (post.comments.length) { %>
                                 <table>
                                     <thead>
@@ -35,14 +51,26 @@
                                     </thead>
                                     <tbody>
                                         <% let total = 0 %>
-
                                         <% post.comments.forEach(c => { %>
-                                    <tr>
-                                        <td><%= c.createdAt.toLocaleDateString() %></td>
-                                        <td><%= c.content %></td>
-                                        
-                                    </tr>
-                                <% }); %>
+                                            <% total += c.rating %>
+                                        <tr>
+                                            <td><%= c.createdAt.toLocaleDateString() %></td>
+                                            <td class="comment-content"><%= c.content %>
+                                            <br>
+                                            <a href="/posts/<%= post._id %>/comments/edit">Edit Comment</a>
+                                            </td>
+
+                                            <td><%= c.rating %></td>
+                                        </tr>
+                                        <% }); %>
+                                        <tr>
+                                            <td colspan="2"></td>
+                                            <td><strong><%= (total / post.comments.length).toFixed(1) %></strong><td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                                <% } else { %>
+                                    <h5>No Rating</h5>
                                 <% } %>
                             </div>
                         </ul>

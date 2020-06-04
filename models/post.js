@@ -2,6 +2,12 @@ var mongoose = require('mongoose');
 
 var commentsSchema = new mongoose.Schema({
     content: String,
+    rating: {
+        type: Number,
+        min: 1,
+        max: 10,
+        default: 5
+    },
     user: {
         type: mongoose.Schema.Types.ObjectId,
         ref: "User"

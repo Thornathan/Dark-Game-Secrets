@@ -5,7 +5,7 @@
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font: 14px "Wellfleet", Helvetica, Arial, sans-serif;
   margin: 0;
   height: 100vh;
   display: flex;
@@ -13,19 +13,47 @@ body {
   background-color: black;
 }
 
+.brand-logo {
+  margin-left: 15px;
+}
+
 nav {
-  max-width: 90%;
   background-color: #b71c1c;
+}
+
+h2 {
+  text-align: center;
+  color: #b71c1c;
+}
+
+.home-page {
+  max-width: 90%;
+  padding: 0 3% 0 3%;
+  margin: 3% 0 0 5%;
+  background-color: #ffff00;
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #ff6f00;
+}
+
+.home-page p {
+  color: #b71c1c;
 }
 
 .nav-wrapper {
   color: #ffab00;
 }
 
+.container {
+  margin-top: 5%;
+}
+
 .link-wrapper {
-  margin-left: 15px;
+  margin-left: 5%;
   background-color: #ffff00;
-  max-width: 120%;
+  max-width: 90%;
   display: flex;
   flex-direction: row;
   justify-content: space-evenly;
@@ -35,52 +63,90 @@ nav {
   background: #ff6f00;
 }
 
-.brand-logo {
-  margin-left: 15px;
-  font-size: 10px;
-}
-
 .card-title {
   margin: 10px;
 }
 
+.card-content {
+  border: 3px solid #ffff00;
+}
+
 .post-title {
-  font: 20px "Arial";
+  margin: 3%;
+  font: 40px "Merriweather";
+  font-weight: 700;
 }
 
 .post {
-  font: 
+  display: flex; 
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #b71c1c;
+}
+
+.post-content {
+  margin: 3%;
+  font: 15px "Merriweather";
+  font-weight: 300;
+}
+
+.comment-content {
+  font: 20px "Tenali Ramakrishna";
 }
 
 .new-form {
-  display: grid;
-  margin-left: 15px;
-  margin-top: 20px;
-  grid-gap: 10px;
-  background-color: #b71c1c;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 5%;
+  background-color: #ffff00;
+  border: 3px solid #ff6f00;
 }
 
 .new-form h2 {
   text-align: center;
-  color: #ffff00;
+  color: #b71c1c;
 }
 
-.new-form label {
-  font: 20px "Arial";
-  color: #ffff00;
-  margin-top: 20px;
+.new-form form label {
+  font: 20px "Wellfleet";
+  color: #b71c1c;
+  position: static;
 }
 
-textarea {
-  color: #ffff00;
-  margin: 15px 0 15px 0;
+#new-form button[type="submit"] {
+  margin: 3%;
 }
 
-#new-form input[type="submit"] {
-  width: 10rem;
-  margin-left: auto;
+#comments-ratings-section {
+  margin-top: 5%
+}
+
+#comments-ratings-section label {
+  font: 20px "Wellfleet";
+  color: #b71c1c;
+}
+
+#comments-ratings-list button {
+  margin-left: 70%;
+}
+
+table {
+  margin-top: 5%;
 }
 
 .posts-wrapper {
   background-color: #ff6f00;
+  border: 3px solid #ffff00;
+}
+
+.posts-wrapper ul li form {
+  margin: 3% 0 3% 3%;
+  display: grid;
+}
+
+.posts-wrapper ul li form button {
+  max-width: 15%;
 }

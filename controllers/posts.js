@@ -30,20 +30,21 @@ function newPost(req, res) {
 }
 
 function index(req, res) {
-    let user = null;
-    if(req.user) {
-        user = req.user;
-    }
-    Post.find({}, function(err, posts) {
-        console.log(posts);
-        res.render('posts/index', {posts, user});
-    });
-};
+  Post.find({}, function (err, posts) {
+      console.log(req.user)
+      res.render('posts/index', { posts, user: req.user });
+  });
+}
 
 function create(req, res) {
     req.body.user = req.user;
-    Post.create(req.body);
-        res.redirect('/posts');
+    const post = new Post(req.body);
+    console.log(req.body);
+    post.save(function (err) {
+        if (err) return res.redirect('/posts');
+        console.log(post);
+        res.redirect(`/posts`);
+    });
 }
 
 function edit(req, res) {
