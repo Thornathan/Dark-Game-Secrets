@@ -18,6 +18,7 @@
                             <div class="post"><%= post.post %></div>
                             <a href="/posts/<%= post._id %>/edit">Edit Post</a>
                             <div class="comments">
+                                <% if (post.user.equals(user && user._id)) { %>
                                 <form id="new-form" method="POST" action="/posts/<%= post._id %>/comments">
                                     <label>Comment:</label>
                                     <textarea name="content"></textarea>

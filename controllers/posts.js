@@ -41,7 +41,7 @@ function index(req, res) {
 };
 
 function create(req, res) {
-    req.body.user = req.user
+    req.body.user = req.user;
     Post.create(req.body);
         res.redirect('/posts');
 }

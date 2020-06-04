@@ -12,10 +12,12 @@
                     <% } %>
                     <span class="user-name"><%= user.name %></span>
                 </span>
+                <% if (p.user.equals(user && user._id)) { %>
                 <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
                 <button type="submit">Delete</button>
-                <a href="/posts/<%= p.id %>"><%= p.title %></a>
                 </form>
+                <% } %>
+                <a href="/posts/<%= p.id %>"><%= p.title %></a>
             </li>
         <% }); %>
     </ul>
