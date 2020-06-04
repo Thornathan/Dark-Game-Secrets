@@ -10,7 +10,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  background-color: black;
+  background: url("https://cdn.gamer-network.net/2018/usgamer/dark-souls-1-bonfire.jpg/EG11/thumbnail/1920x1080/format/jpg/quality/65/dark-souls-trilogy-box-set-also-announced-for-ps4-but-its-crazy-expensive.jpg")
 }
 
 .brand-logo {
@@ -24,6 +24,7 @@ nav {
 h2 {
   text-align: center;
   color: #b71c1c;
+  margin-top: 2%;
 }
 
 .home-page {
@@ -73,7 +74,7 @@ h2 {
 
 .post-title {
   margin: 3%;
-  font: 40px "Merriweather";
+  font: 25px "Merriweather";
   font-weight: 700;
 }
 
@@ -87,7 +88,7 @@ h2 {
 
 .post-content {
   margin: 3%;
-  font: 15px "Merriweather";
+  font: 12px "Merriweather";
   font-weight: 300;
 }
 
@@ -149,4 +150,10 @@ table {
 
 .posts-wrapper ul li form button {
   max-width: 15%;
+}
+
+img {
+  width: 70%;
+  display: block;
+  margin: 3% auto 0 auto;
 }

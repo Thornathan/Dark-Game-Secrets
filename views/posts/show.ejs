@@ -6,20 +6,23 @@
                 <div class="card-content">
                     <div>
                         <span class="card-title">
-                            <% if (user.avatar) { %>
-                                <img width="50" class="circle responsive-img" src="<%= user.avatar %>">
+                            <% if (post.user.avatar) { %>
+                                <img width="50" class="circle responsive-img" src="<%= post.user.avatar %>">
                             <% } else { %>
                                 <i class="small material-icons">perm_identity</i>
                             <% } %>
-                            <span class="user-name"><%= user.name %></span>
+                            <span class="user-name"><%= post.user.name %></span>
                         </span>
                         <ul>
                             <div class="post">
                             <div class="post-title"><%= post.title %></div>
                             <div class="post-content"><%= post.post %></div>
+                            <% if (post.user.equals(user && user._id)) { %>
                             <a href="/posts/<%= post._id %>/edit">Edit Post</a>
+                            <% } %>
                             </div>
                             <div class="comments">
+                                <img src="https://ontologicalgeek.com/wp-content/uploads/ds2_featured.jpg?w=640">
                                 <% if (post.user.equals(user && user._id)) { %>
                                 <form id="comments-ratings-section" method="POST" action="/posts/<%= post._id %>/comments">
                                     <label>Comment:</label>
@@ -57,7 +60,9 @@
                                             <td><%= c.createdAt.toLocaleDateString() %></td>
                                             <td class="comment-content"><%= c.content %>
                                             <br>
+                                            <% if (post.user.equals(user && user._id)) { %>
                                             <a href="/posts/<%= post._id %>/comments/edit">Edit Comment</a>
+                                            <% } %>
                                             </td>
 
                                             <td><%= c.rating %></td>

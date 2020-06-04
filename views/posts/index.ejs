@@ -5,12 +5,12 @@
         <% posts.forEach(p => { %>
             <li>
                 <span class="card-title">
-                    <% if (user.avatar) { %>
-                        <img width="50" class="circle responsive-img" src="<%= user.avatar %>">
+                    <% if (p.user.avatar) { %>
+                        <img width="50" class="circle responsive-img" src="<%= p.user.avatar %>">
                     <% } else { %>
                         <i class="small material-icons">perm_identity</i>
                     <% } %>
-                    <span><%= user.name %></span>
+                    <span><%= p.user.name %></span>
                 </span>
                 <a href="/posts/<%= p.id %>"><%= p.title %></a>
                 <% if (p.user.equals(user && user._id)) { %>
