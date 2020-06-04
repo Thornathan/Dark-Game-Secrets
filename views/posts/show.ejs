@@ -6,12 +6,12 @@
                 <div class="card-content">
                     <div>
                         <span class="card-title">
-                            <% if (post.user.avatar) { %>
-                                <img width="50" class="circle responsive-img" src="<%= post.user.avatar %>">
+                            <% if (postUser.avatar) { %>
+                                <img class="circle responsive-img" src="<%= postUser.avatar %>">
                             <% } else { %>
                                 <i class="small material-icons">perm_identity</i>
                             <% } %>
-                            <span class="user-name"><%= post.user.name %></span>
+                            <span class="user-name"><%= postUser.name %></span>
                         </span>
                         <ul>
                             <div class="post">
@@ -26,12 +26,13 @@
                                 <% if (post.user.equals(user && user._id)) { %>
                                 <form id="comments-ratings-section" method="POST" action="/posts/<%= post._id %>/comments">
                                     <label>Comment:</label>
-                                    <textarea name="content"></textarea>
+                                    <input name="content">
+
                                     <label>Rating:</label>
-                                    <select name="rating"> 
+                                    <select id="rating" name="rating"> 
                                         <option value="1">1</option>
                                         <option value="2">2</option>
-                                        <option value="3">3</option>
+                                        <option selected value="3">3</option>
                                         <option value="4">4</option>
                                         <option value="5">5</option>
                                         <option value="6">6</option>
@@ -61,7 +62,16 @@
                                             <td class="comment-content"><%= c.content %>
                                             <br>
                                             <% if (post.user.equals(user && user._id)) { %>
-                                            <a href="/posts/<%= post._id %>/comments/edit">Edit Comment</a>
+                                            <div class="comment-buttons">
+                                                <form action="/comments/<%= c._id %>?_method=PUT" method="POST">
+                                                    <!-- Value attribute is being set to the comment's current text -->
+                                                    <input name="content" value="<%= c.content %>">
+                                                    <button class="btn btn-small waves-effect waves-light red" type="submit">Edit Comment<i class="material-icons right">send</i></button>
+                                                </form>
+                                                <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
+                                                <button class="btn btn-small waves-effect waves-light red" type="submit">Delete<i class="small material-icons right">cancel</i></button>
+                                                </form>
+                                            </div>
                                             <% } %>
                                             </td>
 
@@ -85,4 +95,8 @@
         </div>
     </div>
 </div>
+<script>
+    const ratingEl = document.getElementById('rating');
+    M.FormSelect.init(ratingEl);
+</script>
 <%- include('../partials/footer') %>

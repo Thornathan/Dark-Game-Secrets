@@ -1,4 +1,5 @@
 const Post = require('../models/post');
+const User = require('../models/user')
 
 module.exports = {
   index,
@@ -16,8 +17,10 @@ function show(req, res) {
         user = req.user;
     }
     Post.findById(req.params.id, function(err, post) {
-        console.log(post);
-        res.render('posts/show', {post, user});
+        User.findById(post.user, function(err, postUser) {
+            console.log(post);
+            res.render('posts/show', {post, user, postUser});
+        })
     });
 };
 
@@ -30,20 +33,20 @@ function newPost(req, res) {
 }
 
 function index(req, res) {
-  Post.find({}, function (err, posts) {
-      console.log(req.user)
-      res.render('posts/index', { posts, user: req.user });
-  });
+    Post.find({})
+    .populate('user')
+    .exec(function(err, posts) {
+        console.log(posts);
+        res.render('posts/index', { posts, user: req.user });
+    })
 }
 
 function create(req, res) {
-    req.body.user = req.user;
     const post = new Post(req.body);
-    console.log(req.body);
+    post.user = req.user._id;
     post.save(function (err) {
         if (err) return res.redirect('/posts');
-        console.log(post);
-        res.redirect(`/posts`);
+        res.redirect(`/posts/${post._id}`);
     });
 }
 
@@ -53,6 +56,7 @@ function edit(req, res) {
         user = req.user;
     }
     Post.findById(req.params.id, function(err, posts) {
+        if (!posts.user.equals(req.user._id)) return res.redirect('/posts');
         res.render('posts/edit', {posts, user});
     })
 }

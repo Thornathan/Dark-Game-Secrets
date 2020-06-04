@@ -3,10 +3,10 @@
         <h2>Edit Post</h2>
         <form id="new-form" action="/posts/<%= posts.id %>?_method=PUT" method="POST" autocomplete="off">
             <label>Title:</label>
-            <textarea name="title"><%= posts.title %></textarea>
+            <input name="title"><%= posts.title %></input>
             <br>
             <label>Post:</label>
-            <textarea name="post"><%= posts.post %></textarea>
+            <input name="post"><%= posts.post %></input>
 
             <button class="btn waves-effect waves-light red" type="submit">Submit<i class="material-icons right">send</i></button>
         </form>
