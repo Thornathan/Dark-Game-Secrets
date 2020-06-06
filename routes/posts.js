@@ -3,6 +3,7 @@ const passport = require('passport');
 const postsCtrl = require('../controllers/posts');
 
 router.get('/', postsCtrl.index);
+router.get('/all', postsCtrl.allPosts);
 router.get('/new',isLoggedIn, postsCtrl.new);
 router.get('/:id', postsCtrl.show);
 router.get('/:id/edit',isLoggedIn, postsCtrl.edit)

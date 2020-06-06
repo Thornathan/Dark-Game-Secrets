@@ -3,6 +3,7 @@ const User = require('../models/user')
 
 module.exports = {
   index,
+  allPosts,
   create,
   new: newPost,
   show,
@@ -18,7 +19,6 @@ function show(req, res) {
     }
     Post.findById(req.params.id, function(err, post) {
         User.findById(post.user, function(err, postUser) {
-            console.log(post);
             res.render('posts/show', {post, user, postUser});
         })
     });
@@ -36,9 +36,22 @@ function index(req, res) {
     Post.find({})
     .populate('user')
     .exec(function(err, posts) {
-        console.log(posts);
         res.render('posts/index', { posts, user: req.user });
     })
+}
+
+function allPosts(req, res) {
+  // Make the query object to use with Book.find based upon
+  // if the user has submitted via a search form for a book name
+  let postQuerry = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
+  Post.find(postQuerry, function(err, posts) {
+    // Why not reuse the books/index template?
+	res.render('/posts/index', {
+	  posts,
+	  user: req.user,
+	  nameSearch: req.query.name  // use to set content of search form
+	});
+  });
 }
 
 function create(req, res) {

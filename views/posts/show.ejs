@@ -23,7 +23,7 @@
                             </div>
                             <div class="comments">
                                 <img src="https://ontologicalgeek.com/wp-content/uploads/ds2_featured.jpg?w=640">
-                                <% if (post.user.equals(user && user._id)) { %>
+                                <% if (user) { %>
                                 <form id="comments-ratings-section" method="POST" action="/posts/<%= post._id %>/comments">
                                     <label>Comment:</label>
                                     <input name="content">
@@ -66,10 +66,14 @@
                                                 <form action="/comments/<%= c._id %>?_method=PUT" method="POST">
                                                     <!-- Value attribute is being set to the comment's current text -->
                                                     <input name="content" value="<%= c.content %>">
-                                                    <button class="btn btn-small waves-effect waves-light red" type="submit">Edit Comment<i class="material-icons right">send</i></button>
+                                                    <button class="btn btn-small waves-effect waves-light red" 
+                                                            type="submit">Edit Comment
+                                                            <i class="material-icons right">send</i></button>
                                                 </form>
                                                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
-                                                <button class="btn btn-small waves-effect waves-light red" type="submit">Delete<i class="small material-icons right">cancel</i></button>
+                                                    <button class="btn btn-small waves-effect waves-light red" 
+                                                            type="submit">Delete
+                                                            <i class="small material-icons right">cancel</i></button>
                                                 </form>
                                             </div>
                                             <% } %>

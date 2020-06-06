@@ -64,9 +64,10 @@ h2 {
   background: #ff6f00;
 }
 
-.card-title {
-  margin: 10px;
+.blog-list {
+  margin-left: 3%;
 }
+
 
 .card-content {
   border: 3px solid #ffff00;
@@ -155,9 +156,24 @@ table {
 img {
   width: 100%;
   display: block;
-  margin: 3% auto 0 auto;
+  margin: 3% auto 1% auto;
+}
+
+.circle {
+  width: 50px;
+  margin-left: 3%;
 }
 
 .comment-buttons {
   display: grid;
+}
+
+.user-title {
+  margin-bottom: 1%;
+}
+
+#no-avatar {
+  width: 90%;
+  display: block;
+  margin: 3% auto 1% auto;
 }

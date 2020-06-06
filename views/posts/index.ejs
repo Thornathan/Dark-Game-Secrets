@@ -3,16 +3,19 @@
 <div class="posts-wrapper">
     <ul>
         <% posts.forEach(p => { %>
-            <li>
+            <li class="blog-list">
                 <span class="card-title">
+                    <div class="user-title">
                     <% if (p.user.avatar) { %>
                         <img width="50" class="circle responsive-img" src="<%= p.user.avatar %>">
                     <% } else { %>
-                        <i class="small material-icons">perm_identity</i>
+                        <i id="no-avatar" class="small material-icons">perm_identity</i>
                     <% } %>
-                    <span><%= p.user.name %></span>
+                    <%= p.user.name %>
+                    </div>
+                    <br>
+                    <a href="/posts/<%= p.id %>"><%= p.title %></a>
                 </span>
-                <a href="/posts/<%= p.id %>"><%= p.title %></a>
                 <% if (p.user.equals(user && user._id)) { %>
                 <form action="/posts/<%= p._id %>?_method=DELETE" class="delete-form" method="POST">
                 <button class="btn btn-small waves-effect waves-light red" type="submit">Delete<i class="small material-icons left">cancel</i></button>
