@@ -11,7 +11,7 @@ passport.use(new GoogleStrategy({
     User.findOne({googleId: profile.id}, function(err, user) {
       if (err) return cb(err);
       if (user) {
-        // returning student
+        // returning user
         if(!user.avatar) {
           user.avatar = profile.photos[0].value;
           user.save(function(err) {
@@ -41,7 +41,7 @@ passport.serializeUser(function(user, done) {
     return done(null, user._id);
 });
 
-// passport.deserializeUser - is called with everytime a user
+// passport.deserializeUser - is called when a user logsout
 passport.deserializeUser(function(id, done) {
     User.findById(id, function(err, user) {
        return done(err, user);

@@ -64,7 +64,6 @@
                                             <div class="comment-buttons">
                                             <% if (c.user.equals(user && user._id)) { %>
                                                 <form action="/comments/<%= c._id %>?_method=PUT" method="POST">
-                                                    <!-- Value attribute is being set to the comment's current text -->
                                                     <input name="content" value="<%= c.content %>">
                                                     <button class="btn btn-small waves-effect waves-light red" 
                                                             type="submit">Edit Comment

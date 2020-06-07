@@ -41,15 +41,12 @@ function index(req, res) {
 }
 
 function allPosts(req, res) {
-  // Make the query object to use with Book.find based upon
-  // if the user has submitted via a search form for a book name
   let postQuerry = req.query.name ? {name: new RegExp(req.query.name, 'i')} : {};
   Post.find(postQuerry, function(err, posts) {
-    // Why not reuse the books/index template?
 	res.render('/posts/index', {
 	  posts,
 	  user: req.user,
-	  nameSearch: req.query.name  // use to set content of search form
+	  nameSearch: req.query.name 
 	});
   });
 }
