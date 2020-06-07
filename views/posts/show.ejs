@@ -61,8 +61,8 @@
                                             <td><%= c.createdAt.toLocaleDateString() %></td>
                                             <td class="comment-content"><%= c.content %>
                                             <br>
-                                            <% if (post.user.equals(user && user._id)) { %>
                                             <div class="comment-buttons">
+                                            <% if (c.user.equals(user && user._id)) { %>
                                                 <form action="/comments/<%= c._id %>?_method=PUT" method="POST">
                                                     <!-- Value attribute is being set to the comment's current text -->
                                                     <input name="content" value="<%= c.content %>">
@@ -72,7 +72,7 @@
                                                 </form>
                                                 <form action="/comments/<%= c._id %>?_method=DELETE" method="POST">
                                                     <button class="btn btn-small waves-effect waves-light red" 
-                                                            type="submit">Delete
+                                                            type="submit">Delete Comment
                                                             <i class="small material-icons right">cancel</i></button>
                                                 </form>
                                             </div>
