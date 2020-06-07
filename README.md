@@ -1,59 +1,74 @@
 # Dark Game Secrets
 
-This is a Blog Site that has a Gaming Theme that is all about Gamers posting about their favorite game secrets, strategies, or simply to connect with fellow gamers.
-
+This is a Blog Site with a Gaming Theme that is all about Gamers posting about their favorite game secrets, strategies, or simply to connect with fellow gamers and they will be able to rate the posts made by users to determine the validity of their post.
 
 ## Home Page
 
-[Imgur](https://i.imgur.com/2H6jPLK.png)
+The Home page allows the user to login and View Blog Posts but in order to actually create a blog or even be able to comment on posts they will be required to login.
+
+When a user first comes to the site they will be greeted with the home page below:
+
+![alt text](https://i.imgur.com/2H6jPLK.png)
+
+## Create A Blog
+
+By clicking on the "Create a Blog" Link it will take you to the create a blog page, from here the user can input a title and content for the post that they are attempting to create.:
+![alt text](https://i.imgur.com/W6p7yA6.png)
+
+## Blog View Page
+
+When a User clicks the "All Blogs" Link they will be taken to a page where all of the posts from all users will be shown with their Avatar and Name along with a title which will be a link to the Users posts and if the Post is one of the logged in user then they will also see a Delete Button for their post:
+![alt text](https://i.imgur.com/0dQRsF3.png)
+
+## Viewing a Blog As A User
+
+When a User is viewing their own posts they will have a link underneath the post content that will allow the user to edit their post:
+![alt text](https://i.imgur.com/YtC3x3w.png)
 
 
+## Viewing a Blog as a Visitor
+
+When a Visitor is viewing a blog that doesn't belong to them the edit link will dissapear:
+![alt text](https://i.imgur.com/12xxBja.png)
 
 
-## Checker Strategies
+## Comments On A Post
 
-- Pieces on the sides are valuable because they can't be jumped.
-- Don't bunch all your pieces in the middle or you may not be able to move, and then you will lose.
-- Try to keep your pieces on the back row or king row for as long as possible, to keep the other player from gaining a king.
-- Plan ahead and try to look at every possible move before you take your turn.
+To comment on a post a user must be logged in to be able to see the comments section which consists of entering a comment as well as a rating for the post they're looking at. The overall rating of the post will be displayed at the bottom out of 10. Also when you have commented as a user then you will have the ability to edit or delete the comments you have made.
+![alt text](https://i.imgur.com/5KjhKqV.png)
 
-## Fun Facts
+## Check It Out!
 
-- The game of checkers is called "draughts" in many countries.
-- It comes from an old game called Alquerque.
-- Chess can be played on the same game board as checkers. (Also using similar code ;) )
-- The game Chinese Checkers has very little to with Checkers and was invented by the Germans, not the Chinese.
-- There are lots of different variants of checkers including a version that is played on a 10x10 board with 20 pieces per player.
+Here is a link to the site! [Dark Game Secrets](https://dark-game-secrets.herokuapp.com/)
 
-
-## Playing The Game!
-
-Here is a link to play the game! [Checkers](https://thornathan.github.io/Checkers-Project-1/)
 ## Built With
 
 - HTML
 - CSS
 - Javascript
+- Express
+- Node.Js
+- MongoDB
+- Heroku
 
 ## Acknowledgments
 
 Special thanks to:
 
-- Jim Haff an Jim Clark for helping in SEI-CC-8_SUPPORT when I had a question regardless of it being simple or difficult
+- All the help from everyone in sei-cc-8-support whenever I had a question that was very quickly answered.
 
-- Alex Rowland and Thomas Choi for taking time to do zoom calls when I got very stuck or hit a wall
+- Alex Rowland and Michael Siller for all of the help they provided in zooms.
 
-- My fellow classmates for listening to my frustrations in stand-ups as well as my accomplishments
+- My fellow classmates for listening to my frustrations in stand-ups as well as my accomplishments and also doing some late zooms to finish the project.
 
-- My brother David for spending about 3 hours completely looking over my code and helping me figure out how to MOVE THE DAMN CHECKERS.
 
-## Bugs to still fix
+## Next Things To Work On
 
-- One rule of checkers is when you jump a piece and you have the ability to jump another piece you should be allowed to jump again. Currently the game simply changes turns regardless if this is a possibility.
+- AAU have a link in the navbar that goes to a page for all of the users posts.
 
-- Leftbound error occurs if you try to jump a piece from lets say column 3 to column 1 and will not allow the jump and switches turns anyways.
+- AAU be able to search through other users posts with a search bar.
 
-- Some issues occur later on with the pieces being jumpable but the jump doesn't occur and instead changes turns causing a player to lose a turn. 
+- AAU be able to also upload attachments to posts such as videos or images.
 
 ## Author
 
