@@ -50,6 +50,7 @@ Here is a link to the site! [Dark Game Secrets](https://dark-game-secrets.heroku
 - Node.Js
 - MongoDB
 - Heroku
+- Mongoose
 
 ## Acknowledgments
 
